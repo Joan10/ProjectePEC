@@ -1,0 +1,57 @@
+INSTRUCCIONS GITHUB
+
+A - Com funciona?
+
+Git genera una sèrie de fitxers amb metainformació a un directori que vulgueu. Executant comandes de terminal en aquest directori podreu intercanviar els fitxers font amb el repositori de git. És important que us situeu a aquest directori amb el terminal ($ cd dir)
+
+B - Com treballar?
+
+	1. Instal·leu git
+	Amb Linux - distribucions debian:
+	$sudo apt-get install git
+
+	Amb Windows mireu més avall
+
+	2. Obriu un terminal i situeu-vos al directori de treball on vulgueu tenir els fitxers
+
+	3. Una vegada us hagi afegit com a col·laboradors haureu de clonar el repositori amb la comanda següent:
+
+	$git clone http://github.com/Joan10/ProjectePEC.
+
+	per tal de tenir tot el directori de git al vostre ordinador.
+
+
+	4. En modificar el programa i vulgueu penjar-ho al repositori, feu
+
+	4.1. $git add fitxer1 fitxer2 fitxer3 ...
+
+	Per afegir els fitxers que hàgiu modificat.
+
+	4.2. $git commit -m 'Comentari'
+
+	Per fer un 'commit' (com un paquet)
+
+	4.3 $git push origin master
+
+	Us demanarà el vostre usuari i password de GitHub.
+	I es pujaran els canvis al servidor.
+
+
+
+	5. Per descarregar la darrera versió del que hi ha al repositori, feu
+
+	$git pull origin master
+
+	I es copiarà la darrera versió al vostre directori local.
+
+C - Windows
+
+He trobat això:
+http://windows.github.com/
+
+D - Més informació a
+
+http://www.adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=git
+https://help.github.com/articles/set-up-git
+
+
