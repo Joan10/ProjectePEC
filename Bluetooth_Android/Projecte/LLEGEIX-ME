@@ -5,6 +5,7 @@ A) QUÈ ESTÀ FET
     A.2) Projecte d'exemple per Android: En teoria connecta un android amb un arduino i encen un LED. Els projectes sencers estan al Dropbox.
 
 B) QUÈ FALTA
-    B.1) Provar de connectar bidireccionalment dos dispositius Android 
-    B.2) Provar la connectivitat bidireccional entre Android i un dispositiu Arduino
-    B.3) Provar la connectivitat bidireccional entre Android i dos arduinos
+    B.1) Comentar el codi
+    B.2) Provar de connectar bidireccionalment dos dispositius Android 
+    B.3) Provar la connectivitat bidireccional entre Android i un dispositiu Arduino
+    B.4) Provar la connectivitat bidireccional entre Android i dos arduinos
