@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PECBluetooth_c</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">PECBluetooth_c</string>
+    <string name="btn_ON">LED ON</string>
+    <string name="btn_OFF">LED OFF</string>
+    <string name="hello_world">Hello world!</string>
+</resources>
