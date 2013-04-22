@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
   Button btnOn, btnOff;
   TextView txtArduino;
   Handler h;
+//Objecte on hi haurà els bytes llegits. És modificat pel connectedthread
    
   final int RECIEVE_MESSAGE = 1;		// Status  for Handler
   private BluetoothAdapter btAdapter = null;
@@ -53,6 +54,19 @@ public class MainActivity extends Activity {
   private static String address = "00:15:FF:F2:19:5F";
    
   /** Called when the activity is first created. */
+
+/*
+
+ACTIVITY <--> "PANTALLA" 
+
+
+
+OnCreate -> OnResume -> RUNNING -> OnPause
+
+
+
+*/
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -87,11 +101,13 @@ public class MainActivity extends Activity {
     btAdapter = BluetoothAdapter.getDefaultAdapter();		// get Bluetooth adapter
     checkBTState();
  
+//Listeners dels botons ON i OFF
     btnOn.setOnClickListener(new OnClickListener() {
       public void onClick(View v) {
     	btnOn.setEnabled(false);
     	mConnectedThread.write("1");	// Send "1" via Bluetooth
         //Toast.makeText(getBaseContext(), "Turn on LED", Toast.LENGTH_SHORT).show();
+	//mConnectedThread és l'objecte encarregat d'enviar dades, d'escriure al buffer
       }
     });
  
@@ -124,6 +140,7 @@ public class MainActivity extends Activity {
    
     // Set up a pointer to the remote node using it's address.
     BluetoothDevice device = btAdapter.getRemoteDevice(address);
+//S'intenta connectar a l'adreça MAC passada
    
     // Two things are needed to make a connection:
     //   A MAC address, which we got above.
@@ -201,10 +218,12 @@ public class MainActivity extends Activity {
   }
  
   private class ConnectedThread extends Thread {
+//Objecte encarregat d'escriure i llegir del buffer bluetooth.
 	    private final InputStream mmInStream;
 	    private final OutputStream mmOutStream;
 	 
 	    public ConnectedThread(BluetoothSocket socket) {
+		//Constructor, li passam el socket del bluetooth per fer escriptures i lectures a sobre.
 	        InputStream tmpIn = null;
 	        OutputStream tmpOut = null;
 	 
@@ -220,6 +239,7 @@ public class MainActivity extends Activity {
 	    }
 	 
 	    public void run() {
+		//procediment que s'executarà contínuament i llegirà del buffer
 	        byte[] buffer = new byte[256];  // buffer store for the stream
 	        int bytes; // bytes returned from read()
 
@@ -237,6 +257,7 @@ public class MainActivity extends Activity {
 	 
 	    /* Call this from the main activity to send data to the remote device */
 	    public void write(String message) {
+		//Escriu al buffer
 	    	Log.d(TAG, "...Data to send: " + message + "...");
 	    	byte[] msgBuffer = message.getBytes();
 	    	try {
