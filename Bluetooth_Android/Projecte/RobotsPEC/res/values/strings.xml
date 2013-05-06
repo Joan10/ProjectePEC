@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RobotsPEC</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="escull_tag">Escull quin robot controlar</string>
+	<string name="autobot_tag">Autobot</string>
+	<string name="deception_tag">Deception</string>
+	
+	<string name="enrere_tag">Enrere</string>
+	
+</resources>

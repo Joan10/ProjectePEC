@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+         android:id="@+id/quisoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+ />
+         <TextView
+         android:id="@+id/quefaig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+ />
+    <Button
+        android:id="@+id/btnMaster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/master" />
+
+    <Button
+        android:id="@+id/btnSlave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnMaster"
+        android:layout_centerHorizontal="true"
+        android:text="@string/slave" />
+    
+    <Button
+        android:id="@+id/btnEnvia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSlave"
+        android:layout_centerHorizontal="true"
+        android:text="Envia" />
+     <Button
+        android:id="@+id/btnLlegeix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnEnvia"
+        android:layout_centerHorizontal="true"
+        android:text="Llegeix" />
+     
+</RelativeLayout>
