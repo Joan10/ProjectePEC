@@ -41,12 +41,13 @@
         android:layout_above="@+id/btnSlave"
         android:layout_centerHorizontal="true"
         android:text="Envia" />
-     <Button
-        android:id="@+id/btnLlegeix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnEnvia"
-        android:layout_centerHorizontal="true"
-        android:text="Llegeix" />
+
+ 	<TextView
+ 	    android:id="@+id/txtrebut"
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_below="@+id/btnMaster"
+ 	    android:layout_centerHorizontal="true"
+ 	    android:layout_marginTop="53dp" />
      
 </RelativeLayout>

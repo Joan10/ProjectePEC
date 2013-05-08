@@ -54,6 +54,8 @@ public class MainActivity extends Activity {
     public static final int STATE_CONNECTING = 2; // now initiating an outgoing connection
     public static final int STATE_CONNECTED = 3;  // now connected to a remote device
     
+    public static final int MSG_UID=17; 
+    
 	//Agafem l'objecte "adapter", el dispositiu.
     private AcceptThread mSecureAcceptThread;
     private AcceptThread mInsecureAcceptThread;
@@ -64,12 +66,12 @@ public class MainActivity extends Activity {
 	
 	private StringBuilder sb = new StringBuilder();
 	 
-	Handler h;
+	Handler h, uidh;
 	Message msg;
 	int Master = -1;
 	
-	Button btnMa, btnSl, btnEnv, btnLle;
-	TextView txtquisoc, txtquefaig;
+	Button btnMa, btnSl, btnEnv;
+	TextView txtquisoc, txtquefaig, txtrebut;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +82,12 @@ public class MainActivity extends Activity {
 		btnMa = (Button) findViewById(R.id.btnMaster);					
 		btnSl = (Button) findViewById(R.id.btnSlave);
 		btnEnv = (Button) findViewById(R.id.btnEnvia);
-		btnLle= (Button) findViewById(R.id.btnLlegeix);
 		
 		txtquisoc = (TextView) findViewById(R.id.quisoc);
 		txtquefaig = (TextView) findViewById(R.id.quefaig);
+		txtrebut = (TextView) findViewById(R.id.txtrebut);
 		
+		btnEnv.setEnabled(false);
 		btnMa.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				btnMa.setEnabled(false);
@@ -118,16 +121,10 @@ public class MainActivity extends Activity {
 		
 		btnEnv.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				mConnectedThread.write(" FUU FUU FUU ".getBytes());
+				mConnectedThread.write(" FUU FUU FU2 ".getBytes());
 			}
 		});
-		
-		btnLle.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mConnectedThread.read();
-			}
-		});	
-		
+				
 		
 	    h = new Handler() {
 	    	public void handleMessage(android.os.Message msg) {
@@ -138,12 +135,21 @@ public class MainActivity extends Activity {
 	            	sb.append(strIncom);												// append string
 	            	Log.d(TAG, "...String:"+ sb.toString() +  "Byte:" + msg.arg1 + "...");
 	            	//Log, inicialment comentat.
+	            	txtrebut.setText(strIncom);
 	            	break;
 	    			}
 	    		}
 	        };
 		
-		
+		    uidh = new Handler() {
+		    	public void handleMessage(android.os.Message msg) {
+		    		switch (msg.what) {
+		            case MSG_UID:			// if receive massage
+		            	btnEnv.setEnabled(true);
+		            	break;
+		    			}
+		    		}
+		        };
 
 	}
 	@Override
@@ -196,6 +202,7 @@ public class MainActivity extends Activity {
 			mmSocket.close();
 			mAcceptThread.cancel();
 			mConnectThread.cancel();
+
 		} catch (Exception e) {
 			//TODO Auto-generated catch block
 			e.printStackTrace();
@@ -299,14 +306,12 @@ public class MainActivity extends Activity {
 	        // Start the thread to manage the connection and perform transmissions
 	        mConnectedThread = new ConnectedThread(socket);
 	        mConnectedThread.start();
-
+	        
 	        // Send the name of the connected device back to the UI Activity
-	       // Message msg = mHandler.obtainMessage(BluetoothChat.MESSAGE_DEVICE_NAME);
-	       // Bundle bundle = new Bundle();
-	        //bundle.putString(BluetoothChat.DEVICE_NAME, device.getName());
-	       // msg.setData(bundle);
-	        //mHandler.sendMessage(msg);
-
+            uidh.obtainMessage(MSG_UID, 1, -1, 0)
+            .sendToTarget();
+	        
+            
 	        mState = STATE_CONNECTED;
 	        }
 	    /**
@@ -439,9 +444,10 @@ public class MainActivity extends Activity {
 	        /* Call this from the main activity to send data to the remote device */
 	        public void write(byte[] bytes) {
 	            try {
+	            	
 	                mmOutStream.write(bytes);
 	                Log.e(TAG, "Escrivint...");
-	            } catch (IOException e) { }
+	            } catch (Exception e) {Log.e(TAG, "ERROR ESCRIVINT"); }
 	        }
 	     
 	        /* Call this from the main activity to shutdown the connection */
