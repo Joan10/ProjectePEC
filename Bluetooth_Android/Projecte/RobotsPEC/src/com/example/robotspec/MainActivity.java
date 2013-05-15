@@ -19,6 +19,10 @@ public class MainActivity extends Activity {
 
 	Button btnMa, btnSl, btnEnv;
 	TextView txtquisoc, txtquefaig, txtrebut;
+	
+	static String MAC_Arduino = "00:06:66:08:B2:8A";
+	static String MAC_MeuMobil = "90:C1:15:BE:65:83";
+	static String msg1 = "M";
 
 	BluetoothAdapter bt;
 	mod_Bluetooth mb;
@@ -36,7 +40,7 @@ public class MainActivity extends Activity {
 		txtrebut = (TextView) findViewById(R.id.txtrebut);
 		
 		bt = BluetoothAdapter.getDefaultAdapter();
-		mb = new mod_Bluetooth(bt, "fa87c0d0-afac-11de-8a39-0800200c9a66", btnEnv, txtrebut);
+		mb = new mod_Bluetooth(bt, "00001101-0000-1000-8000-00805F9B34FB", btnEnv, txtrebut);
 		
 		btnMa.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -54,14 +58,14 @@ public class MainActivity extends Activity {
 				btnMa.setEnabled(false);
 				btnSl.setEnabled(false);
 				
-				mb.Activa_Client("90:C1:15:BE:65:83");
+				mb.Activa_Client(MAC_Arduino);
 				txtquisoc.setText("Sóc slave");
 			}
 		});
 		
 		btnEnv.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				mb.Envia("FUU FUU FU2 ");
+				mb.Envia(msg1);
 			}
 		});
 		

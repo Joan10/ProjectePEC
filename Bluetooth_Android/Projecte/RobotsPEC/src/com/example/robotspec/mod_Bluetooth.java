@@ -137,6 +137,7 @@ public class mod_Bluetooth  {
 	public void Activa_Client(String MAC){
 		try {
 			BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(MAC);
+			Log.d("BT", "device" + device.getName() + device.getAddress());
 			mConnectThread = new ConnectThread(device);
 			mConnectThread.start();
 		} catch (Exception e){
@@ -196,7 +197,7 @@ public class mod_Bluetooth  {
 
 	            // Create a new listening server socket
 	            try { 
-	                    tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(NAME_SECURE,
+	                    tmp = mBluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(NAME_SECURE,
 	                        MY_UUID_SECURE);
 	            } catch (IOException e) {
 	                Log.e(TAG, "Socket Type: " + mSocketType + "listen() failed", e);
@@ -320,6 +321,7 @@ public class mod_Bluetooth  {
 	                // This is a blocking call and will only return on a
 	                // successful connection or an exception
 	                mmSocket.connect();
+	                Log.e("BT", "ola ke ase");
 	            } catch (IOException e) {
 	                // Close the socket
 	                try {
