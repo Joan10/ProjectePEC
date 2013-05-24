@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-
+/*
+Git hub es un xou
+*/
 public class ControlUsuari implements OnTouchListener{
 
 	public float initx = 425;
