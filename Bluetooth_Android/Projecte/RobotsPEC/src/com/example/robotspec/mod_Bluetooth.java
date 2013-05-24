@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+//h
 
 public class mod_Bluetooth  {
 	private BluetoothAdapter mBluetoothAdapter;
