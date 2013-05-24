@@ -163,6 +163,14 @@ public class mod_Bluetooth  {
 		}
 	}
 	
+	public void EnviaByte(byte[] x){
+		try {
+			mConnectedThread.write(x);
+		} catch (Exception e){
+			Log.e("BT","Error enviant!");
+		}
+	}
+	
 
 	public void Pausa() {
 		try {
