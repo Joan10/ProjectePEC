@@ -21,8 +21,8 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="174dp"
-        android:onClick="MostraActivitatDeception"
-        android:text="@string/deception_tag" />
+        android:onClick="MostraActivitatDecepticon"
+        android:text="@string/decepticon_tag" />
 
     <Button
         android:id="@+id/button1"
@@ -34,57 +34,6 @@
         android:onClick="MostraActivitatAutobot"
         android:text="@string/autobot_tag" />
 
- 	<Button
- 	    android:id="@+id/btnSlave"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_alignBaseline="@+id/btnEnvia"
- 	    android:layout_alignBottom="@+id/btnEnvia"
- 	    android:layout_alignRight="@+id/textView1"
- 	    android:text="Esclau" />
 
- 	<Button
- 	    android:id="@+id/btnMaster"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_alignBaseline="@+id/btnSlave"
- 	    android:layout_alignBottom="@+id/btnSlave"
- 	    android:layout_alignRight="@+id/button1"
- 	    android:layout_marginRight="28dp"
- 	    android:text="Master" />
-
- 	<TextView
- 	    android:id="@+id/quefaig"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_alignLeft="@+id/btnEnvia"
- 	    android:layout_alignParentBottom="true"
- 	    android:layout_marginBottom="95dp" />
-
- 	<TextView
- 	    android:id="@+id/quisoc"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_alignBaseline="@+id/quefaig"
- 	    android:layout_alignBottom="@+id/quefaig"
- 	    android:layout_alignLeft="@+id/btnMaster" />
-
- 	<Button
- 	    android:id="@+id/btnEnvia"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_alignLeft="@+id/button2"
- 	    android:layout_below="@+id/quisoc"
- 	    android:layout_marginLeft="15dp"
- 	    android:layout_marginTop="25dp"
- 	    android:text="Envia" />
-
- 	<TextView
- 	    android:id="@+id/txtrebut"
- 	    android:layout_width="wrap_content"
- 	    android:layout_height="wrap_content"
- 	    android:layout_above="@+id/button1"
- 	    android:layout_centerHorizontal="true"
- 	    android:layout_marginBottom="36dp" />
 
 </RelativeLayout>
