@@ -1,18 +1,24 @@
 package com.example.robotspec;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class AutobotControlActivity extends Activity  {
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(new Taulell(this,0));
+		
+
+		
 		
 	}
 
