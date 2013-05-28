@@ -15,7 +15,7 @@
         android:text="@string/escull_tag" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonRig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
@@ -28,7 +28,7 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/buttonRig"
         android:layout_alignLeft="@+id/textView1"
         android:layout_marginBottom="14dp"
         android:onClick="MostraActivitatAutobot"
