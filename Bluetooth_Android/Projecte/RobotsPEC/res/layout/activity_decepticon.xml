@@ -8,16 +8,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-
-
     <Button
         android:id="@+id/btnEnvia"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tableLayout1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="61dp"
-        android:text="Envia" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/foto" />
 
 </RelativeLayout>

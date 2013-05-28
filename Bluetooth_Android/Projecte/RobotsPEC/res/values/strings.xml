@@ -11,5 +11,11 @@
 	
 	<string name="enrere_tag">Enrere</string>
 	<string name="shoot">Shoot</string>
+	<string name="foto">Foto</string>
+	<string name="stop">Stop</string>
+	<string name="left">Left</string>
+	<string name="right">Right</string>
+	<string name="forward">Forward</string>
+	<string name="backward">Backward</string>
 	
 </resources>
