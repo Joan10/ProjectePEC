@@ -86,7 +86,7 @@ public class mod_Bluetooth  {
 	            	sb.append(strIncom);												// append string
 	            	Log.d(TAG, "...String:"+ sb.toString() +  "Byte:" + msg.arg1 + "...");
 	            	//Log, inicialment comentat.
-	            	Text_rebut.setText(strIncom);
+	            	if (Text_rebut != null) Text_rebut.setText(strIncom);
 	            	break;
 	    			}
 	    		}
@@ -97,7 +97,7 @@ public class mod_Bluetooth  {
 	    		switch (msg.what) {
 	            case MSG_UID:			// if receive massage
 	            	Connectat = true;
-	            	btAct.setEnabled(true);
+	            	if (btAct != null)  btAct.setEnabled(true);
 	            	break;
 	    			}
 	    		}

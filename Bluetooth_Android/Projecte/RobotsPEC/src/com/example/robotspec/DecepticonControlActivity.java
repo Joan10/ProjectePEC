@@ -18,7 +18,7 @@ public class DecepticonControlActivity extends Activity {
 	TextView txtrebut;
 	
 	static String MAC_Arduino = "00:06:66:08:B2:8A";
-	static String msg1 = "M";
+	static String msgFoto = "10";
 
 	BluetoothAdapter bt;
 	mod_Bluetooth mb;
@@ -34,7 +34,7 @@ public class DecepticonControlActivity extends Activity {
 		
 		btnEnv.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				mb.Envia(msg1);
+				mb.Envia(msgFoto);
 			}
 		});
 		
@@ -48,9 +48,12 @@ public class DecepticonControlActivity extends Activity {
 		
 		PreparaBluetooth();
 		
+
+		
+		
 	}
 	
-	/*public void onResume() {
+	public void onResume() {
 		super.onResume();
 		Log.d("BT", "...Començant()...");
 
@@ -67,7 +70,7 @@ public class DecepticonControlActivity extends Activity {
 		
 		mb.Retorna();
 		
-	}*/
+	}
 
 	//public void MostraActivitatAutobot(View clickedButton) {
 	//	Intent activityIntent = new Intent(this, LoanCalculatorActivity.class);
