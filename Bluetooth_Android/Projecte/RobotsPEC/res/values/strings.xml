@@ -17,5 +17,6 @@
 	<string name="right">Right</string>
 	<string name="forward">Forward</string>
 	<string name="backward">Backward</string>
+	<string name="Debugger">Debugger</string>
 	
 </resources>

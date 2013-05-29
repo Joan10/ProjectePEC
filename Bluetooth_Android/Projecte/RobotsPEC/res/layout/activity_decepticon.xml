@@ -1,77 +1,100 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/buttonRig"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decepticon_tag"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical" >
+        
+        <Button
+	        android:id="@+id/ButtonFor"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/forward" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/buttonBac"
-        android:text="@string/right" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/buttonSto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonRig"
-        android:layout_alignBottom="@+id/buttonRig"
-        android:layout_centerHorizontal="true"
-        android:text="@string/stop" />
+       	<Button
+	        android:id="@+id/buttonRig"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/right" />
+	
+	    <Button
+	        android:id="@+id/buttonSto"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/stop" />
+	
+	    <Button
+	        android:id="@+id/buttonLef"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:onClick=""
+	        android:text="@string/left" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical" >
+	    
+	    <Button
+	        android:id="@+id/buttonBac"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/backward" />
+	            
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/buttonLef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonSto"
-        android:layout_alignBottom="@+id/buttonSto"
-        android:layout_toLeftOf="@+id/buttonBac"
-        android:onClick=""
-        android:text="@string/left" />
+        <TextView
+            android:id="@+id/etiquetaDebugger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Debugger"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+	    <TextView
+	        android:id="@+id/textDebugger"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" />
+        
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/ButtonFor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSto"
-        android:layout_centerHorizontal="true"
-        android:text="@string/forward" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ButtonFor"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="17dp"
-        android:layout_marginLeft="34dp"
-        android:text="@string/decepticon_tag"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/buttonBac"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonSto"
-        android:layout_centerHorizontal="true"
-        android:text="@string/backward" />
-
-    <TextView
-        android:id="@+id/textDebugger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonBac"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:text="Debugger" />
-
-</RelativeLayout>
-
-
+</LinearLayout>
 
