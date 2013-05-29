@@ -78,6 +78,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="false"
         android:gravity="center"
         android:orientation="vertical" >
 
@@ -92,7 +93,9 @@
 	    <TextView
 	        android:id="@+id/textDebugger"
 	        android:layout_width="match_parent"
-	        android:layout_height="match_parent" />
+	        android:layout_height="match_parent"
+	        android:minLines="@integer/maxLineDebugger"
+	        android:scrollbars="vertical" />
         
     </LinearLayout>
 
