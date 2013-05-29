@@ -94,7 +94,7 @@
 	        android:id="@+id/textDebugger"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:minLines="@integer/maxLineDebugger"
+	        android:minLines="5"
 	        android:scrollbars="vertical" />
         
     </LinearLayout>
