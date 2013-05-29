@@ -14,60 +14,44 @@ import android.widget.TextView;
 
 public class AutobotControlActivity extends Activity  {
 	
-	Button btnEndavant, btnEndarrera, btnEsquerra, btnDreta, btnStop;
+	Button btnEnv;
 	TextView txtrebut;
 	
 	static String MAC_Arduino = "00:06:66:08:B2:8A";
-	static String msgEndavant = "0";
-	static String msgEndarrera = "1";
-	static String msgEsquerra = "2";
-	static String msgDreta = "3";
-	static String msgStop = "4";
-	
-	
+	// Autobot
+	private static byte[] DISPARA = new byte[] { (byte)'D' };	// D
+	private static byte[] TARGET = new byte[] { (byte)'T' };	// T
+	private static byte[] NO_TARGET = new byte[] { (byte)'N' };	// N
+	private static byte[] CAMERA = new byte[] { (byte)'C' };	// C
 
 	BluetoothAdapter bt;
-	mod_Bluetooth mb;
+	mod_Bluetooth mb = null;
+	
+	public void AC_disparar(){
+		if (mb != null ) mb.EnviaByte(DISPARA);
+	}
 
+	public byte[] AC_KillCam(){
+		// Pre : solo entramos aqui si se ha leido que queremos mostrar foto
+		// tengo que recoger la foto y convertirla a algo chulo, para pasarlo a la capa VISTA
+		return ( new byte[] { 0x00 } );
+	}
+	
 	void PreparaBluetooth(){
 		
-		btnEndavant = (Button) findViewById(R.id.ButtonFor);
-		btnEndarrera = (Button) findViewById(R.id.buttonBac);		
-		btnEsquerra = (Button) findViewById(R.id.buttonLef);
-		btnDreta = (Button) findViewById(R.id.buttonRig);
-		btnStop = (Button) findViewById(R.id.buttonSto);
+		btnEnv = (Button) findViewById(R.id.btnEnvia);
 	//	txtrebut = (TextView) findViewById(R.id.txtrebut);
 		
 		bt = BluetoothAdapter.getDefaultAdapter();
-		mb = new mod_Bluetooth(bt, "00001101-0000-1000-8000-00805F9B34FB", btnEndavant, txtrebut);
+		mb = new mod_Bluetooth(bt, "00001101-0000-1000-8000-00805F9B34FB", btnEnv, txtrebut);
 		mb.Activa_Client(MAC_Arduino); //Ens connectarem al PIC
 		
-		btnEndavant.setOnClickListener(new OnClickListener() {
+		btnEnv.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				mb.Envia(msgEndavant);
+					AC_disparar();
 			}
 		});
 		
-		btnEndarrera.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mb.Envia(msgEndarrera);
-			}
-		});
-		btnEsquerra.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mb.Envia(msgEsquerra);
-			}
-		});
-		btnDreta.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mb.Envia(msgDreta);
-			}
-		});
-		btnStop.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mb.Envia(msgStop);
-			}
-		});
 		
 	}
 	
@@ -75,10 +59,14 @@ public class AutobotControlActivity extends Activity  {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_autobot);
+		
 		PreparaBluetooth();
 		
-	}
 
+		
+		
+	}
+	
 	public void onResume() {
 		super.onResume();
 		Log.d("BT", "...Començant()...");

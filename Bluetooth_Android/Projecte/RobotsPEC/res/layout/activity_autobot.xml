@@ -9,58 +9,12 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/buttonBac"
+        android:id="@+id/btnEnvia"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp"
-        android:text="@string/backward" />
-
-    <Button
-        android:id="@+id/buttonRig"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/buttonBac"
-        android:text="@string/right" />
-
-    <Button
-        android:id="@+id/buttonSto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonRig"
-        android:layout_alignBottom="@+id/buttonRig"
-        android:layout_centerHorizontal="true"
-        android:text="@string/stop" />
-
-    <Button
-        android:id="@+id/buttonLef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonSto"
-        android:layout_alignBottom="@+id/buttonSto"
-        android:layout_toLeftOf="@+id/buttonBac"
-        android:onClick=""
-        android:text="@string/left" />
-
-    <Button
-        android:id="@+id/ButtonFor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSto"
-        android:layout_centerHorizontal="true"
-        android:text="@string/forward" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ButtonFor"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="17dp"
-        android:layout_marginLeft="34dp"
-        android:text="@string/autobot_tag"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/foto" />
 
 </RelativeLayout>
