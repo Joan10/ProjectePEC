@@ -3,6 +3,8 @@ package com.example.robotspec;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -85,8 +87,15 @@ public class AutobotControlActivity extends Activity  {
 		mb.Retorna();
 		
 	}
-	//public void MostraActivitatAutobot(View clickedButton) {
-	//	Intent activityIntent = new Intent(this, LoanCalculatorActivity.class);
-	//	startActivity(activityIntent);
-	//}
+	
+	public void onPause(){
+		super.onPause();
+		mb.atura();
+		
+	}
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	    super.onConfigurationChanged(newConfig);
+	    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	}
 }

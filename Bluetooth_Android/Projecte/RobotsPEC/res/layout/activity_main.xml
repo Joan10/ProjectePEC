@@ -1,39 +1,33 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/wallpapermain"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
+    
+	<Button
+	    android:id="@+id/button1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/button_autobot"
+	    android:onClick="MostraActivitatAutobot"
+	    android:text="@string/NADA" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/escull_tag" />
+	<ImageView
+	    android:id="@+id/imageView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/imagecontra" />
 
     <Button
         android:id="@+id/buttonRig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="174dp"
         android:onClick="MostraActivitatDecepticon"
-        android:text="@string/decepticon_tag" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonRig"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_marginBottom="14dp"
-        android:onClick="MostraActivitatAutobot"
-        android:text="@string/autobot_tag" />
+	    android:background="@drawable/button_decepticon"
+	    android:text="@string/NADA" />
 
 
-
-</RelativeLayout>
+</LinearLayout>

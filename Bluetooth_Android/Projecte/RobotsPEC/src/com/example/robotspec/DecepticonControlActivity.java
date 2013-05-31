@@ -3,6 +3,8 @@ package com.example.robotspec;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,7 @@ public class DecepticonControlActivity extends Activity {
 	
 	static String MAC_Arduino = "00:06:66:08:B2:8A";
 	// Decepticon
-	private static byte[] PALANTE = new byte[] { 0x1 };			// 1
+	private static byte[] PALANTE = new byte[] { (byte) '1' };			// 1
 	private static byte[] MUERTO = new byte[] { 0x2 };			// 2
 	private static byte[] PATRAS = new byte[] { 0x3 };			// 3
 	private static byte[] ADERECHA = new byte[] { 0x4 };		// 4
@@ -80,10 +82,10 @@ public class DecepticonControlActivity extends Activity {
 	void PreparaBluetooth(){
 		
 		btnEndavant = (Button) findViewById(R.id.ButtonFor);
-		btnEndarrera = (Button) findViewById(R.id.buttonBac);		
-		btnEsquerra = (Button) findViewById(R.id.buttonLef);
-		btnDreta = (Button) findViewById(R.id.buttonRig);
-		btnStop = (Button) findViewById(R.id.buttonSto);
+		btnEndarrera = (Button) findViewById(R.id.ButtonBac);		
+		btnEsquerra = (Button) findViewById(R.id.ButtonLef);
+		btnDreta = (Button) findViewById(R.id.ButtonRig);
+		btnStop = (Button) findViewById(R.id.ButtonSto);
 		txtDebugger = (TextView) findViewById(R.id.textDebugger);
 		
 		bt = BluetoothAdapter.getDefaultAdapter();
@@ -145,9 +147,16 @@ public class DecepticonControlActivity extends Activity {
 		mb.Retorna();
 		
 	}
+	
+	public void onPause(){
+		super.onPause();
+		mb.atura();
+		
+	}
 
-	//public void MostraActivitatAutobot(View clickedButton) {
-	//	Intent activityIntent = new Intent(this, LoanCalculatorActivity.class);
-	//	startActivity(activityIntent);
-	//}
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	    super.onConfigurationChanged(newConfig);
+	    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	}
 }

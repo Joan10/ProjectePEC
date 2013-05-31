@@ -18,5 +18,7 @@
 	<string name="forward">Forward</string>
 	<string name="backward">Backward</string>
 	<string name="Debugger">Debugger</string>
+	<string name="contra">contra</string>
+	<string name="NADA"></string>
 	
 </resources>

@@ -25,7 +25,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
-//h
+//Si el mòdul bluetooth fa coses rares fer:
+//SF,1 (fàbrica)
+//SN,<nom>
+//S0,Slave
+//SM,0
+//SA,0
 
 public class mod_Bluetooth  {
 	private BluetoothAdapter mBluetoothAdapter;
@@ -172,22 +177,28 @@ public class mod_Bluetooth  {
 		}
 	}
 	
-
-	public void Pausa() {
-		try {
-			mmSocket.close();
-			mAcceptThread.cancel();
-			mConnectThread.cancel();
-			//.cancel() TANCA EL SOCKET però no mata els dimonis
-		} catch (Exception e) {
-			//TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Log.d("BT", "...In onPause()...");
-		mBluetoothAdapter.cancelDiscovery();
-
-	}
 	
+    public synchronized void atura() {
+        if (D) Log.d(TAG, "stop");
+
+        if (mConnectThread != null) {
+            mConnectThread.cancel();
+            mConnectThread = null;
+        }
+
+        if (mConnectedThread != null) {
+            mConnectedThread.cancel();
+            mConnectedThread = null;
+        }
+
+        if (mAcceptThread != null) {
+            mAcceptThread.cancel();
+            mAcceptThread = null;
+        }
+        
+        mBluetoothAdapter.cancelDiscovery();
+    }
+    
 	public void Retorna() {
 		mState = STATE_CONNECTING;
 		Log.d("BT", "...Tornant...");
@@ -330,7 +341,6 @@ public class mod_Bluetooth  {
 	                // This is a blocking call and will only return on a
 	                // successful connection or an exception
 	                mmSocket.connect();
-	                Log.e("BT", "ola ke ase");
 	            } catch (IOException e) {
 	                // Close the socket
 	                try {
